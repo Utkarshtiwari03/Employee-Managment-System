@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -29,6 +31,12 @@ public class EmpController {
         return empService.getEmployee();
     }
 
+    @GetMapping("/Employees/{id}")
+    public Employee getMethodName(@PathVariable Long id) {
+        return empService.getEmployeeById(id);
+    }
+    
+
     @PostMapping("/Employees")
     public String createEmployee(@RequestBody Employee employe) {
         String result=empService.createEmployee(employe);
@@ -43,9 +51,8 @@ public class EmpController {
         return"Not Found";
     }
 
-    @PutMapping("path/{id}")
+    @PutMapping("Employees/{id}")
     public String putMethodName(@PathVariable Long id, @RequestBody Employee employee) {
-        
         return empService.updateEmployee(id, employee);
     }
     

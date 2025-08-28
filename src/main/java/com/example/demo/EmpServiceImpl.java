@@ -33,6 +33,17 @@ public class EmpServiceImpl implements EmpService {
     }
 
     @Override
+    public Employee getEmployeeById(Long id) {
+        EmployeeEntity employeeEntity= employeeRepo.findById(id).get();
+        Employee employee=new Employee();
+        BeanUtils.copyProperties(employeeEntity, employee);
+        return employee;
+    }
+
+
+
+
+    @Override
     public String createEmployee(Employee employee) {
         EmployeeEntity employeeEntity=new EmployeeEntity();
         BeanUtils.copyProperties(employee, employeeEntity);
@@ -49,7 +60,16 @@ public class EmpServiceImpl implements EmpService {
 
     @Override
     public String updateEmployee(Long id, Employee emp) {
+        EmployeeEntity existingEmployee=employeeRepo.findById(id).get();
+        
+        existingEmployee.setEmail(emp.getEmail());
+        existingEmployee.setName(emp.getName());
+        existingEmployee.setNumber(emp.getNumber());
+        
+        employeeRepo.save(existingEmployee);
          return "Updated";
     }
+
+    
     
 }
