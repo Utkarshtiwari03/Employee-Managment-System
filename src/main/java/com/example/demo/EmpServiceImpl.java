@@ -48,7 +48,7 @@ public class EmpServiceImpl implements EmpService {
     }
 
     @Override
-    public String updateEmployee(int id, Employee emp) {
+    public String updateEmployee(Long id, Employee emp) {
          return "Updated";
     }
     
