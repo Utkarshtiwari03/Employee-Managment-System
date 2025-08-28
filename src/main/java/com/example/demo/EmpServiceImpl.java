@@ -40,6 +40,14 @@ public class EmpServiceImpl implements EmpService {
         return employee;
     }
 
+    @Override
+    public Employee getEmployeeByName(String name) {
+        EmployeeEntity empEntity= employeeRepo.findBynameIgnoreCase(name);
+        Employee emp=new Employee();
+        BeanUtils.copyProperties(empEntity, emp);
+        return emp;
+    }
+
 
 
 
@@ -69,6 +77,8 @@ public class EmpServiceImpl implements EmpService {
         employeeRepo.save(existingEmployee);
          return "Updated";
     }
+
+    
 
     
     

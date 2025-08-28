@@ -35,6 +35,12 @@ public class EmpController {
     public Employee getMethodName(@PathVariable Long id) {
         return empService.getEmployeeById(id);
     }
+
+    @GetMapping("/Employees/name/{name}")
+    public Employee getMethodName(@PathVariable String name) {
+        return empService.getEmployeeByName(name);
+    }
+    
     
 
     @PostMapping("/Employees")

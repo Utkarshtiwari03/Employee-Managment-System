@@ -8,4 +8,5 @@ interface EmpService {
     public String createEmployee(Employee employee);
     public boolean delteEmployee(Long id);
     public String updateEmployee(Long id,Employee emp);
+    public Employee getEmployeeByName(String name);
 }
