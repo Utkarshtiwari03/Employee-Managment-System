@@ -1,12 +1,12 @@
 package com.example.demo;
 
-// import lombok.AllArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-// import lombok.NoArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Data
-// @NoArgsConstructor
-// @AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class Employee {
     private Long id;
     private String name;
